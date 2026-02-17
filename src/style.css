@@ -94,3 +94,11 @@ header h1 {
 .ship {
   background-color: var(--color-primary);
 }
+
+.cell.hit {
+  background-color: var(--color-muted-text);
+}
+
+.cell.hit-ship {
+  background-color: #d32f2f;
+}
