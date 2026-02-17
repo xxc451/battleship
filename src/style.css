@@ -20,6 +20,7 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 img, picture, video, canvas, svg {
@@ -40,4 +41,28 @@ p {
 }
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
+}
+
+/* Beginning of Styles */
+:root {
+  --color-primary: #93e2e4;
+  --color-bg: #eeeeee;
+  --color-border: #bbbbbb;
+  --color-main-text: #2e2e2e;
+  --color-muted-text: #6e6e6e;
+  --border-radius: 5px;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-main-text);
+}
+
+header {
+  border-bottom: var(--color-border) 1px solid;
+}
+
+header h1 {
+  padding: 16px;
+  text-align: center;
 }
