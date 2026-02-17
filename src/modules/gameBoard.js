@@ -44,14 +44,18 @@ export default class {
     }
 
     receiveAttack(x, y) {
-        if (this.board[x][y].ship && !this.board[x][y].hit) {
-            const ship = this.board[x][y].ship;
-            ship.hit();
-            if (ship.isSunk()) {
-                this.numShips -= 1;
+        if (!this.board[x][y].hit) {
+            this.board[x][y].hit = true;
+            if (this.board[x][y].ship) {
+                const ship = this.board[x][y].ship;
+                ship.hit();
+                if (ship.isSunk()) {
+                    this.numShips -= 1;
+                }
             }
+            return true;
         }
-        this.board[x][y].hit = true;
+        return false;
     }
 
     allShipSunk() {

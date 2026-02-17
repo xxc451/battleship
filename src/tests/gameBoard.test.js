@@ -101,6 +101,15 @@ describe("receiveAttack()", () => {
         expect(gameBoard.board[2][2].hit).toBe(false);
     });
 
+    test("Should return true when cell not hit before", () => {
+        expect(gameBoard.receiveAttack(0, 0)).toBe(true);
+    });
+
+    test("Should return false when cell already hit", () => {
+        gameBoard.receiveAttack(0, 0);
+        expect(gameBoard.receiveAttack(0, 0)).toBe(false);
+    });
+
     test("Should call hit() on ship when hit", () => {
         gameBoard.placeShip(0, 0, 5, true);
         gameBoard.receiveAttack(0, 0);
