@@ -1,4 +1,4 @@
-import GameBoard from "./gameBoard";
+import GameBoard from "./gameBoard.js";
 
 export default class {
     constructor(isHuman) {
