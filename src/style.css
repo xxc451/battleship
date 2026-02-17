@@ -66,3 +66,31 @@ header h1 {
   padding: 16px;
   text-align: center;
 }
+
+#content {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.board-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 48px 0;
+}
+
+.board {
+  width: 400px;
+  height: 400px;
+  display: grid;
+  grid-template: repeat(10, 1fr) / repeat(10, 1fr);
+  border: var(--color-main-text) 1px solid;
+  background-color: white;
+}
+
+.cell {
+  border: 1px solid var(--color-border);
+}
+
+.ship {
+  background-color: var(--color-primary);
+}

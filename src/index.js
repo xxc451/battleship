@@ -1,3 +1,5 @@
+import { initGame, renderBoards } from "./modules/game.js";
 import "./style.css";
 
-console.log("Hello World");
+initGame();
+renderBoards();
