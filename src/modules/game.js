@@ -150,8 +150,15 @@ function createBoard(player) {
 }
 
 function renderBoards() {
-    const boardContainer = document.querySelector(".board-container");
-    boardContainer.textContent = "";
+    const left = document.querySelector(".left");
+    left.textContent = "";
+    const leftTitle = document.createElement("h2");
+    leftTitle.textContent = "Your Board";
+
+    const right = document.querySelector(".right");
+    right.textContent = "";
+    const rightTitle = document.createElement("h2");
+    rightTitle.textContent = "Computer's Board";
 
     const humanBoard = createBoard(human);
     const computerBoard = createBoard(computer);
@@ -187,7 +194,8 @@ function renderBoards() {
         }
     });
 
-    boardContainer.append(humanBoard, computerBoard);
+    left.append(leftTitle, humanBoard);
+    right.append(rightTitle, computerBoard);
 }
 
 export { initGame, renderBoards };
