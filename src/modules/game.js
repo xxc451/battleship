@@ -63,7 +63,7 @@ function createBoard(player) {
 }
 
 function renderBoards() {
-    let boardContainer = document.querySelector(".board-container");
+    const boardContainer = document.querySelector(".board-container");
     boardContainer.textContent = "";
 
     const humanBoard = createBoard(human);
@@ -99,9 +99,6 @@ function renderBoards() {
     });
 
     boardContainer.append(humanBoard, computerBoard);
-
-    const content = document.querySelector("#content");
-    content.append(boardContainer);
 }
 
 export { initGame, renderBoards };
