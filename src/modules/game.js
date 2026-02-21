@@ -1,7 +1,19 @@
 import Player from "./player.js";
 
-const human = new Player(true);
-const computer = new Player(false);
+let human;
+let computer;
+
+const dialog = document.querySelector("dialog");
+const dialogClose = document.querySelector("dialog button");
+
+dialog.addEventListener("close", () => {
+    initGame();
+    renderBoards();
+});
+
+dialogClose.addEventListener("click", () => {
+    dialog.close();
+});
 
 function createElementWithClass(element, className) {
     const node = document.createElement(element);
@@ -9,7 +21,17 @@ function createElementWithClass(element, className) {
     return node;
 }
 
+function displayWinner(isHuman) {
+    const header = document.querySelector("dialog h1");
+
+    header.textContent = isHuman ? "You Win" : "You Lose";
+
+    dialog.showModal();
+}
+
 function initGame() {
+    human = new Player(true);
+    computer = new Player(false);
     human.board.placeShip(0, 0, 5, true);
     human.board.placeShip(1, 0, 3, true);
 
@@ -42,12 +64,7 @@ function createBoard(player) {
 
 function renderBoards() {
     let boardContainer = document.querySelector(".board-container");
-
-    if (boardContainer) {
-        boardContainer.textContent = "";
-    } else {
-        boardContainer = createElementWithClass("div", "board-container");
-    }
+    boardContainer.textContent = "";
 
     const humanBoard = createBoard(human);
     const computerBoard = createBoard(computer);
@@ -57,6 +74,11 @@ function renderBoards() {
             const x = parseInt(e.target.dataset.x);
             const y = parseInt(e.target.dataset.y);
             if (computer.board.receiveAttack(x, y)) {
+                if (computer.board.allShipSunk()) {
+                    renderBoards();
+                    displayWinner(true);
+                    return;
+                }
                 // computer turn
                 let computerHit = false;
                 while (!computerHit) {
@@ -69,6 +91,9 @@ function renderBoards() {
                 }
 
                 renderBoards();
+                if (human.board.allShipSunk()) {
+                    displayWinner(false);
+                }
             }
         }
     });

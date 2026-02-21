@@ -46,6 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Beginning of Styles */
 :root {
   --color-primary: #93e2e4;
+  --color-hover: #00767c;
   --color-bg: #eeeeee;
   --color-border: #bbbbbb;
   --color-main-text: #2e2e2e;
@@ -101,4 +102,33 @@ header h1 {
 
 .cell.hit-ship {
   background-color: #d32f2f;
+}
+
+dialog {
+  padding: 36px;
+  border: 1px var(--color-border) solid;
+  border-radius:  var(--border-radius);
+  box-shadow: 0 0 5px 2px black;
+}
+
+dialog h1 {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.dialog-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+dialog button {
+  padding: 8px 16px;
+  border: none;
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+dialog button:hover {
+  background-color: var(--color-hover);
 }
